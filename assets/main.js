@@ -8,7 +8,7 @@ given in the comments.
 // 1) Create a function named helloWorld that returns the exact phrase:
 // "Hello World!".
 
-let helloWorld = helloWorld();
+helloWorld();
 
 function helloWorld() {
     console.log("Hello World!");
@@ -19,7 +19,8 @@ function helloWorld() {
 // and return the string: "Hello, name." where "name" is replaced
 // with whatever value we want to provide when calling the function.
 
-let greeting = greeting(name);
+let name = prompt("Enter your name");
+greeting(name);
 
 function greeting(name) {
     console.log("Hello " + name + ".");
@@ -29,14 +30,15 @@ function greeting(name) {
 // and will return accurate boolean data depending on the value
 // of the "number" parameter. Hint: Try the modulus operator.
 
-let divisibleByThree = divisibleByThree(number);
+let number = prompt("Enter a number");
+divisibleByThree(number);
 
 function divisibleByThree(number) {
     if (number % 3 == 0) {
-        return true;
+        console.log(true);
     }
     else {
-        return false;
+        console.log(false);
     }
 }
 
@@ -46,11 +48,16 @@ function divisibleByThree(number) {
 // return the average of num1 and num2. Returned results should be
 // rounded to the nearest integer. Hint: Use a Math method to round.
 
-let avgerageAge = averageAge(num1, num2, num3);
+const num1 = prompt("Enter a number (num1)");
+const num2 = prompt("Enter a number (num2)");
+const num3 = prompt("Enter a number (num3)");
+console.log(num1,num2, num3);
+averageAge(num1, num2, num3);
 
 function averageAge(num1, num2, num3) {
-    
-}
+    const arr = [num1, num2, num3];
+    Math.round();
+  }
 
 // 5) Create a function named leetSpeak that accepts a word
 // as a parameter and returns the same word except all of the letter
@@ -59,13 +66,23 @@ function averageAge(num1, num2, num3) {
 // Hints: You will use a loop. You will use conditionals.
 // Example: leet is returned as l33t. speak is returned as sp34k
 
-let leetSpeek = leetSpeak(word);
+let str = prompt("Enter a word");
+speakLeet(str);
 
-function leetSpeak(word) {
-    if (word.contains("e")){
-        word = word.replace("e", 3);
-    }
-    if (word.contains("a")){
-        word = word.replace("a", 4);
-    }
+function speakLeet(str) {
+	var leetCode = {
+		a: "4",
+		e: '3'
+	}
+	
+	var translatedStr = "";
+
+	for (i = 0; i < str.length; i++) {
+        if(str.charAt(i) == "a" || str.charAt(i) == "e"){
+		    translatedStr += leetCode[str.charAt(i)];
+        }
+        else translatedStr += str.charAt(i);
+	}
+
+	console.log(translatedStr);
 }
