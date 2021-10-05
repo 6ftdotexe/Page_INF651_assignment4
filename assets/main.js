@@ -11,8 +11,7 @@ given in the comments.
 helloWorld();
 
 function helloWorld() {
-    console.log("Hello World!");
-
+    return ("Hello World!");
 }
 
 // 2) Create a function named greeting that will accept a "name" parameter
@@ -23,7 +22,7 @@ let name = prompt("Enter your name");
 greeting(name);
 
 function greeting(name) {
-    console.log("Hello " + name + ".");
+    return ("Hello " + name + ".");
 }
 
 // 3) Create a function named divisibleByThree that accepts a "number" parameter
@@ -34,7 +33,7 @@ let number = prompt("Enter a number");
 divisibleByThree(number);
 
 function divisibleByThree(number) {
-    console.log((number%3==0) ? true : false);
+    return ((number%3==0) ? true : false);
 }
 
 // 4) Create a function named averageAge that accepts 3 parameters:
@@ -45,7 +44,6 @@ function divisibleByThree(number) {
 var num1 = Number(prompt("Enter a number (num1)",NaN));
 var num2 = Number(prompt("Enter a number (num2)",NaN));
 var num3 = Number(prompt("Enter a number (num3)",NaN));
-console.log(num1,num2, num3);
 averageAge(num1, num2, num3);
 
 function averageAge(num1, num2, num3) {
@@ -65,7 +63,7 @@ function averageAge(num1, num2, num3) {
         total = total + array[i];
     }
     var avg = total / array.length;
-    console.log(avg);
+    return (avg);
 }
 
 // 5) Create a function named leetSpeak that accepts a word
@@ -93,5 +91,21 @@ function speakLeet(str) {
         else translatedStr += str.charAt(i);
 	}
 
-	console.log(translatedStr);
+	return(translatedStr);
 }
+
+// Print code to index.html
+
+var q1 = helloWorld();
+var q2 = greeting(name);
+var q3 = divisibleByThree(number);
+var q4 = averageAge(num1, num2, num3);
+var q5 = speakLeet(str);
+
+const questions = [q1, q2, q3, q4, q5];
+let text = ""
+for (let j = 1; j < 6; j++){
+    console.log (j + ". " + questions[j-1] + "\n");
+    text += j + ". " + questions[j-1] + "<br>";
+}
+document.getElementById("text").innerHTML = text;
