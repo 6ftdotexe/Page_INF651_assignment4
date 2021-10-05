@@ -34,12 +34,7 @@ let number = prompt("Enter a number");
 divisibleByThree(number);
 
 function divisibleByThree(number) {
-    if (number % 3 == 0) {
-        console.log(true);
-    }
-    else {
-        console.log(false);
-    }
+    console.log((number%3==0) ? true : false);
 }
 
 // 4) Create a function named averageAge that accepts 3 parameters:
@@ -47,17 +42,31 @@ function divisibleByThree(number) {
 // all three numbers, but the parameter num3 is missing, it should
 // return the average of num1 and num2. Returned results should be
 // rounded to the nearest integer. Hint: Use a Math method to round.
-
-const num1 = prompt("Enter a number (num1)");
-const num2 = prompt("Enter a number (num2)");
-const num3 = prompt("Enter a number (num3)");
+var num1 = Number(prompt("Enter a number (num1)",NaN));
+var num2 = Number(prompt("Enter a number (num2)",NaN));
+var num3 = Number(prompt("Enter a number (num3)",NaN));
 console.log(num1,num2, num3);
 averageAge(num1, num2, num3);
 
 function averageAge(num1, num2, num3) {
-    const arr = [num1, num2, num3];
-    Math.round();
-  }
+    var total = 0;
+    var array = [];
+    if(isNaN(num1)){
+        array = [num2, num3];
+    } else if(isNaN(num2)){
+        array = [num1, num3];
+    } else if(isNaN(num3)){
+        array = [num1, num2];
+    } else{
+        array = [num1, num2, num3];
+    }
+   
+    for(var i = 0; i < array.length; i++) {
+        total = total + array[i];
+    }
+    var avg = total / array.length;
+    console.log(avg);
+}
 
 // 5) Create a function named leetSpeak that accepts a word
 // as a parameter and returns the same word except all of the letter
