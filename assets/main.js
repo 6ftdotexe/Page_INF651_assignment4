@@ -63,7 +63,7 @@ function averageAge(num1, num2, num3) {
         total = total + array[i];
     }
     var avg = total / array.length;
-    return (avg);
+    return (Math.round(avg));
 }
 
 // 5) Create a function named leetSpeak that accepts a word
